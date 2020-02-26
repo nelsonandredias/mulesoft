@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="global-variables-environmentsFlow" doc:id="d1582f7b-8589-49ed-bc33-4c3e1cee362e" >
+		<http:listener doc:name="Listener" doc:id="41bc73ab-69d7-4c8f-a8da-4d2c30b2a6b5" config-ref="HTTP_Listener_config" path="${basePath}"/>
+		<logger level="INFO" doc:name="Log Environment" doc:id="3b9a60eb-051f-4cf3-8121-2948e5ac5710" message="#[Mule::p('env')]"/>
+		<ee:transform doc:name="Transform Message" doc:id="ff707f23-4860-4b52-a583-ef281fd89a1a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"environment": Mule::p('env')
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

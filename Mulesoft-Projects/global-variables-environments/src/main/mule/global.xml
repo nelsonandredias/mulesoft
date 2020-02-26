@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2066098f-1be3-4630-bada-26c497d7ac73" doc:description="HTTP Connection">
+		<http:listener-connection host="${http.host}" port="${http.port}" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="95aa21df-46fc-47ff-99c0-71cd2bbae5f8" doc:description="configuration property file to be use depends on the set environment " file="${env}-config.properties" />
+	<global-property doc:name="Global Property" doc:id="968c98d4-be1d-4817-b000-35776913fa3b" name="env" value="local" doc:description="global variable that sets the running environment"/>
+	<configuration-properties doc:name="Configuration properties" doc:id="724bd411-eee7-4053-9b0d-11ff3ff4b9ed" file="common-config.yaml" doc:description="common configuration property file to all environments"/>
+</mule>

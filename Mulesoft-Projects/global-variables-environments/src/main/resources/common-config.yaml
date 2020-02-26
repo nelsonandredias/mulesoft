@@ -1,0 +1,12 @@
+
+########
+# HTTP Configuration
+########
+http:
+  host: "localhost"
+  port: "8081"
+  
+########
+# Resource URI
+########
+basePath: "/global-variables"
