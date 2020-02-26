@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension-documentation>
+    <configs>
+        <config name="config">
+            <description><![CDATA[Default configuration]]></description>
+            <parameters>
+                <parameter name="applicationName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="applicationVersion">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="environment">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="globalTimestamp">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+    </configs>
+    <connections/>
+    <extension name="CustomLoggingModule">
+        <description><![CDATA[This is the main class of a custom connector, which means that it's the entry point of the custom connector and where all configurations, connection providers, operations, and sources are going to be declared.]]></description>
+        <parameters/>
+    </extension>
+    <operations>
+        <operation name="customerLogger">
+            <description><![CDATA[Example of an operation that uses the configuration and a connection instance to perform some action.]]></description>
+            <parameters>
+                <parameter name="loggingInformation">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="outputFormat">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="logLevel">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="trackingPoint">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+    </operations>
+    <sources/>
+    <types>
+        <type name="mule.extension.internal.models.LogLevel">
+            <description><![CDATA[This class is used to create the parameter that will represent 
+ a dropdown box in the custom connector Logger operation.
+ 
+ For that, it was set an enum class with all the possible log level options.]]></description>
+            <parameters>
+                <parameter name="levelLog">
+                    <description><![CDATA[Create a required parameter that represents the dropdown box with log level]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="mule.extension.internal.models.LoggingInformation">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="message">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="content">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="flowName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="correlationID">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="mule.extension.internal.models.OutputFormat">
+            <description><![CDATA[This class is used to create the parameter that will represent 
+ a dropdown box in the custom connector Logger operation.
+ 
+ For that, it was set an enum class with all the possible logging output options.]]></description>
+            <parameters>
+                <parameter name="printingOutputs">
+                    <description><![CDATA[Create a required parameter that represents the dropdown box with priority log]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="mule.extension.internal.models.TrackingPoint">
+            <description><![CDATA[This class is used to create the parameter that will represent 
+ a dropdown box in the custom connector Logger operation.
+ 
+ For that, it was set an enum class with all the possible tracing point options.]]></description>
+            <parameters>
+                <parameter name="trackingPoint">
+                    <description><![CDATA[Create a required parameter that represents the dropdown box with tracking points options]]></description>
+                </parameter>
+            </parameters>
+        </type>
+    </types>
+</extension-documentation>

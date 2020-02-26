@@ -1,0 +1,145 @@
+:toc:               left
+:toc-title:         CustomLoggingModule Module
+:toclevels:         2
+:last-update-label!:
+:docinfo:
+:source-highlighter: coderay
+:icons: font
+
+
+= CustomLoggingModule Module Documentation Reference
+
++++
+This is the main class of a custom connector, which means that it's the entry point of the custom connector and where all configurations, connection providers, operations, and sources are going to be declared.
++++
+
+
+== Configurations
+---
+[[config]]
+=== Config
+
++++
+Default configuration
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+|Name | String | The name for this configuration. Connectors reference the configuration with this name. | | *x*{nbsp}
+| Application Name a| String |  |  | *x*{nbsp}
+| Application Version a| String |  |  | *x*{nbsp}
+| Environment a| String |  |  | *x*{nbsp}
+| Global Timestamp a| Date |  |  | *x*{nbsp}
+| Expiration Policy a| <<ExpirationPolicy>> |  +++Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.+++ |  | {nbsp}
+|======================
+
+
+==== Associated Operations
+* <<customerLogger>> {nbsp}
+
+
+
+== Operations
+
+[[customerLogger]]
+=== Custom Logger
+`<custom-logger-module:customer-logger>`
+
++++
+Example of an operation that uses the configuration and a connection instance to perform some action.
++++
+
+==== Parameters
+[cols=".^20%,.^20%,.^35%,.^20%,^.^5%", options="header"]
+|======================
+| Name | Type | Description | Default Value | Required
+| Configuration | String | The name of the configuration to use. | | *x*{nbsp}
+| Logging Information a| <<LoggingInformation>> |  |  | *x*{nbsp}
+| Output Format a| <<OutputFormat>> |  |  | *x*{nbsp}
+| Log Level a| <<LogLevel>> |  |  | *x*{nbsp}
+| Tracking Point a| <<TrackingPoint>> |  |  | *x*{nbsp}
+|======================
+
+
+==== For Configurations.
+* <<config>> {nbsp}
+
+
+
+
+== Types
+[[ExpirationPolicy]]
+=== Expiration Policy
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Max Idle Time a| Number | A scalar time value for the maximum amount of time a dynamic configuration instance should be allowed to be idle before it's considered eligible for expiration |  | 
+| Time Unit a| Enumeration, one of:
+
+** NANOSECONDS
+** MICROSECONDS
+** MILLISECONDS
+** SECONDS
+** MINUTES
+** HOURS
+** DAYS | A time unit that qualifies the maxIdleTime attribute |  | 
+|======================
+
+[[LoggingInformation]]
+=== Logging Information
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Message a| String |  |  | x
+| Content a| String |  |  | x
+| Flow Name a| String |  |  | x
+| Correlation ID a| String |  |  | x
+|======================
+
+[[OutputFormat]]
+=== Output Format
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Printing Outputs a| Enumeration, one of:
+
+** XML
+** JSON | Create a required parameter that represents the dropdown box with priority log |  | x
+|======================
+
+[[LogLevel]]
+=== Log Level
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Level Log a| Enumeration, one of:
+
+** DEBUG
+** ERROR
+** INFO
+** TRACE
+** WARN | Create a required parameter that represents the dropdown box with log level |  | x
+|======================
+
+[[TrackingPoint]]
+=== Tracking Point
+
+[cols=".^20%,.^25%,.^30%,.^15%,.^10%", options="header"]
+|======================
+| Field | Type | Description | Default Value | Required
+| Tracking Point a| Enumeration, one of:
+
+** START
+** END
+** BEFORE_API_OR_BACKEND_REQUEST
+** AFTER_API_OR_BACKEND_REQUEST
+** BEFORE_PAYLOAD_TRANSFORM
+** AFTER_PAYLOAD_TRANSFORM | Create a required parameter that represents the dropdown box with tracking points options |  | x
+|======================
+
