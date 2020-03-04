@@ -1,0 +1,24 @@
+########
+# HTTP Configuration
+########
+https:
+  host: "localhost"
+  port: "8082"
+http:
+  host: "localhost"
+  port: "8081"
+########
+# Resource URI
+########
+basePath:
+  client: "/client"
+  server: "/server"
+########
+# Certificates
+########
+keystore:
+  basePath: "keystore/keystore.jks"
+  password: "password"
+truststore:
+  basePath: "keystore/truststore.ts"
+  password: "password"
