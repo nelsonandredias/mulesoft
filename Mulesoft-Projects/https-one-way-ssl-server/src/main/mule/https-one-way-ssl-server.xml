@@ -7,6 +7,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="client" doc:id="c6f41def-9bad-476f-9085-1dbd493760d5" >
 		<http:listener doc:name="Listener" doc:id="591d09c1-c2e2-4f50-b3a8-5de04534080c" config-ref="HTTP_Client_Listener" path="${basePath.client}"/>
 		<logger level="INFO" doc:name="Log Start Client" doc:id="f04b5936-f702-4095-9ef2-18df955c7d8d" message="#[&quot;Log START -&gt; CLIENT &quot; ++ Mule::p('env')]"/>
+		<flow-ref doc:name="Flow Reference" doc:id="3f70a33f-6670-402f-a2e4-6ff2341c5cd4" name="common-loggingFlow"/>
 		<http:request method="GET" doc:name="Request" doc:id="d801ab54-3b6d-41bf-b50a-dd12090ed7ad" path="${basePath.server}" config-ref="HTTP_Server_Request"/>
 	</flow>
 	<flow name="server" doc:id="0e5bf56f-834a-45b8-aae6-3a148eaf264c" >

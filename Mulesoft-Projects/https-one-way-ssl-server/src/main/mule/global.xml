@@ -27,4 +27,5 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="75c4745d-a2f8-47b8-a1b8-a54bb389c3ed" file="common-config.yaml" key="${runtime.secure.key}" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
+	<import doc:name="Import" doc:id="101fb033-32cb-46f8-9187-21fd27d07521" file="common-logging.xml" />
 </mule>
