@@ -18,7 +18,7 @@ basePath:
 ########
 keystore:
   basePath: "keystore/keystore.jks"
-  password: "password"
+  password: "![Qvg+/L86Aw7HxUc+4uszNw==]"
 truststore:
   basePath: "keystore/truststore.ts"
-  password: "password"
+  password: "![Qvg+/L86Aw7HxUc+4uszNw==]"

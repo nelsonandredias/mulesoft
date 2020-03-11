@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 	</tls:context>
 	<configuration-properties doc:name="Configuration properties" doc:id="0bd3b7d4-3a72-4f47-8b03-2d6b618986af" doc:description="common configuration file to all environments" file="common-config.yaml"/>
 	<configuration-properties doc:name="Configuration properties" doc:id="7c25c170-9d26-4ecb-8166-e9c64f74bfa8" file="${env}-config.yaml" doc:description="configuration property file to be use depends on the set environment "/>
-	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="75c4745d-a2f8-47b8-a1b8-a54bb389c3ed" file="common-config.yaml" key="mulesoft" >
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="75c4745d-a2f8-47b8-a1b8-a54bb389c3ed" file="common-config.yaml" key="${runtime.secure.key}" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
 </mule>

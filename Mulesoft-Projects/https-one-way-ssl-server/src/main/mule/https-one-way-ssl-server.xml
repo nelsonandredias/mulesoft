@@ -12,5 +12,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="server" doc:id="0e5bf56f-834a-45b8-aae6-3a148eaf264c" >
 		<http:listener doc:name="Listener" doc:id="aec4d3b0-d9b2-4820-ac8d-23203822859c" config-ref="HTTPS_Server_Listener" path="${basePath.server}" allowedMethods="GET"/>
 		<logger level="INFO" doc:name="Log Start Server" doc:id="d9b45410-e7cc-40e4-9cc4-a351cc3cd4b1" message="#[Mule::p('message')]"/>
+		<logger level="INFO" doc:name="Log Password" doc:id="4a6f0856-87e8-414a-a2f5-9151478a5fd6" message="#[Mule::p('secure::keystore.password')]"/>
 	</flow>
 </mule>

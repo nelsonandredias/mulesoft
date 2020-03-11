@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="common-loggingFlow" doc:id="795238b6-616a-4817-91cc-0326d3dc64e2" >
+		<logger level="INFO" doc:name="Common Log" doc:id="954198c9-d791-4d7b-a749-e1fce2a1befe" message='#["Common Log"]'/>
+	</flow>
+</mule>
