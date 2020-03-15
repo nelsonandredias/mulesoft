@@ -1,0 +1,2 @@
+profile: UAT
+message: configurations in ${profile}

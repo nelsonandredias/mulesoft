@@ -1,0 +1,2 @@
+profile: PROD
+message: configurations in ${profile}
