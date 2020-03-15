@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<import doc:name="Import" doc:id="3de46690-652d-4269-8f62-238a7846b3a3" doc:description="common property configurations to all projects. The values change according to profile selected" file="common-config.xml" />
+	<import doc:name="Import" doc:id="6b20abe3-53a8-4b25-b09c-b0a013c9cec3" doc:description="common resources to all projects." file="common-resources.xml" />
+	<global-property doc:name="Global Property" doc:id="7173ea03-2529-4e0b-a71a-0fd6e754e444" name="profile" value="dev" />
+</mule>
