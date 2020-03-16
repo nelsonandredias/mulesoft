@@ -1,2 +1,23 @@
-profile: DEV
-message: configurations in ${profile}
+profile: "DEV"
+message: "configurations in ${profile}"
+
+#####################################
+# HTTP Configuration
+#####################################
+https:
+  host: "localhost"
+  port: "8082"
+http:
+  host: "localhost"
+  port: "8081"
+  
+#####################################
+# Certifications
+#####################################
+tls:
+  keystore:
+    basePath: "certificates/${profile}/keystore.jks"
+    password: "![Qvg+/L86Aw7HxUc+4uszNw==]"
+  truststore:
+    basePath: "certificates/${profile}/truststore.ts"
+    password: "![Qvg+/L86Aw7HxUc+4uszNw==]"

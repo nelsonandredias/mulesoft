@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8e193613-85ad-4e99-b21e-f0f1e8d3d4fc" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8e193613-85ad-4e99-b21e-f0f1e8d3d4fc" doc:description="Common HTTP Listener Configuration">
+		<http:listener-connection host="${http.host}" port="${http.port}" />
 	</http:listener-config>
+	<http:listener-config name="HTTPS_Listener_config" doc:name="HTTP Listener config" doc:id="cec38666-cc24-4981-8d09-693573d3ef8f" doc:description="Common HTTPS Listener Configuration" >
+		<http:listener-connection host="${https.host}" port="${https.port}" tlsContext="TLS_Context" />
+	</http:listener-config>
+	<tls:context name="TLS_Context_Server_Listener" doc:name="TLS Context" doc:id="370ab323-a16b-4af5-b38c-ced8cdb1cdfa" doc:description="TLS Context for HTTPS Listener" >
+		<tls:key-store type="jks" path="${tls.keystore.basePath}" keyPassword="${secure::tls.keystore.password}" password="${secure::tls.keystore.password}"/>
+	</tls:context>
+	<tls:context name="TLS_Context_Client_Request" doc:name="TLS Context" doc:id="c355d8c1-54a3-4f23-8fe9-6a2c1ab3769e" doc:description="TLS Context for Client Requestor" >
+		<tls:trust-store path="${tls.truststore.basePath}" type="jks" insecure="true" password="${secure::tls.truststore.password}"/>
+	</tls:context>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="6d0c6c1e-a6ad-4ad6-9eb8-c0bc16a1aa08" doc:description="Common HTTPS Requestor Configuration">
+		<http:request-connection protocol="HTTPS" host="${https.host}" port="${https.port}" tlsContext="TLS_Context_Client_Request" />
+	</http:request-config>
 </mule>
