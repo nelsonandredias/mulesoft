@@ -1,4 +1,4 @@
-profile: "UAT"
+profile: "uat"
 message: "configurations in ${profile}"
 
 #####################################

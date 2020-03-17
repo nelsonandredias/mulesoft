@@ -1,4 +1,4 @@
-profile: "PROD"
+profile: "prod"
 message: "configurations in ${profile}"
 
 #####################################
