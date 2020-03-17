@@ -4,8 +4,13 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
-	<flow name="use-common-configFlow" doc:id="c9c4cd63-4a37-4b65-a955-3fe142d89f71" >
-		<http:listener doc:name="Listener" doc:id="11bd0ff0-1160-41b4-b9b3-5a924b02df31" path="/use-common-config" config-ref="HTTP_Listener_config"/>
-		<logger level="INFO" doc:name="Logger" doc:id="66d07ea1-06b9-4c68-beb2-54cd213f4d73" message="#[Mule::p('message')]"/>
+	<flow name="http-flow" doc:id="c9c4cd63-4a37-4b65-a955-3fe142d89f71" >
+		<http:listener doc:name="Listener" doc:id="11bd0ff0-1160-41b4-b9b3-5a924b02df31" path="/http-flow" config-ref="HTTP_Listener_config"/>
+		<logger level="INFO" doc:name="Logger" doc:id="66d07ea1-06b9-4c68-beb2-54cd213f4d73" message="#[Mule::p('secure::message')]"/>
+		<http:request method="GET" doc:name="Request" doc:id="368913ed-3605-4c50-89c3-864803596b7c" config-ref="HTTP_Request_configuration" path="/https-flow"/>
+	</flow>
+	<flow name="https-flow" doc:id="a0a3696f-c12c-4a25-9c87-3f1aac32184d" >
+		<http:listener doc:name="Listener" doc:id="244b3315-eaaf-4c92-bc48-b3ab5671d885" config-ref="HTTPS_Listener_config" path="/https-flow"/>
+		<logger level="INFO" doc:name="Logger" doc:id="cd74ed16-1200-4acb-803e-a62b3ead3f97" message="#[Mule::p('secure::message')]"/>
 	</flow>
 </mule>
