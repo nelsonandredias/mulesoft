@@ -4,7 +4,8 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
-	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="39049024-324c-431e-988d-85e71db68a84" file="${profile}-config.yaml" key="mulesoft">
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="39049024-324c-431e-988d-85e71db68a84" file="${profile}-secure-config.yaml" key="mulesoft">
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
+	<configuration-properties doc:name="Configuration properties" doc:id="34525047-e14b-458a-8991-70d46b1df26f" file="${profile}-config.yaml" />
 </mule>

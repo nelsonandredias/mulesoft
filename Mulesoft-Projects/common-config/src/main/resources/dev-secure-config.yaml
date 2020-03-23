@@ -1,0 +1,9 @@
+  
+#####################################
+# Certifications
+#####################################
+tls:
+  keystore:
+    password: "![Qvg+/L86Aw7HxUc+4uszNw==]"
+  truststore:
+    password: "![Qvg+/L86Aw7HxUc+4uszNw==]"
